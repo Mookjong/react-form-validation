@@ -1,0 +1,9 @@
+@mixin icon-style {
+  text-align: center;
+  margin-left: 0.3em;
+  background-color: $clr-light;
+  border-radius: 50%;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
