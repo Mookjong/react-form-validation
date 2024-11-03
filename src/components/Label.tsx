@@ -10,7 +10,6 @@ type LabelProps = PropsWithChildren<{
 }>
 
 const Label = ({ isValueValid, value, children, fieldId }: LabelProps) => {
-    console.log("LABEL RENDER")
 
     return (
         <label htmlFor={fieldId}>
