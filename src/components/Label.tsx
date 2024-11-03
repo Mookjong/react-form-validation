@@ -6,11 +6,14 @@ import { PropsWithChildren } from "react"
 type LabelProps = PropsWithChildren<{
     isValueValid: boolean
     value: string
+    fieldId: string
 }>
 
-const Label = ({ isValueValid, value, children }: LabelProps) => {
+const Label = ({ isValueValid, value, children, fieldId }: LabelProps) => {
+    console.log("LABEL RENDER")
+
     return (
-        <label htmlFor="username">
+        <label htmlFor={fieldId}>
             {children}:
             <span className={isValueValid ? "valid" : "hide"}>
                 <FontAwesomeIcon icon={faCheck} />

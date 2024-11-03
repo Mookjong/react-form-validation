@@ -1,22 +1,55 @@
-import React from 'react'
+import { ForwardedRef, forwardRef, PropsWithChildren, useId } from "react"
+import { faInfoCircle, } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Input = () => {
-  return (
-    
-        <input
-                    type="text"
-                    id='username'
-                    ref={userRef}
-                    autoComplete='off'
-                    onChange={e => setUser(e.target.value)}
-                    required
-                    aria-invalid={validName ? 'false' : 'true'}
-                    aria-describedby='uidnote'
-                    onFocus={() => setUserFocus(true)}
-                    onBlur={() => setUserFocus(false)}
-                />
+type InputProps = PropsWithChildren<{
+    type: "text" | "password"
+    autocomplete: React.HTMLInputAutoCompleteAttribute
+    onChange: (v: string) => void
+    isValueValid: boolean
+    onFocus: (v: boolean) => void
+    focus: boolean,
+    value: string | number
+    fieldId: string
+    noteClassName: "instruction" | "offscreen"
+}>
 
-  )
-}
+const Input = forwardRef(({
+    type,
+    autocomplete, 
+    onChange, 
+    isValueValid, 
+    onFocus, 
+    fieldId,
+    noteClassName,
+    children }: InputProps, 
+
+    ref?: ForwardedRef<HTMLInputElement>) => {
+
+    const id = useId()
+
+    console.log("INPUT RENDER")
+
+    return (
+        <>
+            <input
+                type={type}
+                id={fieldId}
+                ref={ref}
+                autoComplete={autocomplete}
+                onChange={e => onChange(e.target.value)}
+                required
+                aria-invalid={isValueValid ? 'false' : 'true'}
+                aria-describedby={`describer-${id}`}
+                onFocus={() => onFocus(true)}
+                onBlur={() => onFocus(false)}
+            />
+            <p id={`describer-${id}`} className={noteClassName}>
+                <span className='invalid'><FontAwesomeIcon icon={faInfoCircle} /></span>&nbsp;
+                {children}
+            </p>
+        </>
+    )
+})
 
 export default Input
