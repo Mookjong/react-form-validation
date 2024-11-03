@@ -24,33 +24,42 @@
     margin-bottom: 0.2em;
   }
 
-  input {
-    width: 21em;
-    height: 2em;
-    font-size: 1.2rem;
-    border: 2px solid grey;
-    border-radius: 0.8em;
-    outline: none;
-    display: block;
-    padding-left: .2em;
-
-    &:focus {
-      border: 2px solid $clr-blue;
-    }
-  }
-
-  input + p {
-    font-size: .9rem;
-  }
-
   span[aria-label] {
     margin-right: 0.2em;
   }
+
+  .field {
+    position: relative;
+
+    input {
+      width: 21em;
+      height: 2em;
+      font-size: 1.2rem;
+      border: 2px solid grey;
+      border-radius: 0.8em;
+      outline: none;
+      display: block;
+      padding-left: .2em;
+  
+      &:focus {
+        border: 2px solid $clr-blue;
+      }
+    }
+    
+    .describer {
+      font-size: .9rem;
+    }
+
+    .show-password-icon {
+      cursor: pointer;
+      position: absolute;
+      right: .5em;
+      color: $clr-blue;
+      top: .8em;
+    }
+  }
 }
 
-.show-password-icon {
-  
-}
 
 .valid {
   color: green;

@@ -27,7 +27,13 @@ body {
   display: block;
   margin-bottom: 0.2em;
 }
-.form input {
+.form span[aria-label] {
+  margin-right: 0.2em;
+}
+.form .field {
+  position: relative;
+}
+.form .field input {
   width: 21em;
   height: 2em;
   font-size: 1.2rem;
@@ -37,14 +43,18 @@ body {
   display: block;
   padding-left: 0.2em;
 }
-.form input:focus {
+.form .field input:focus {
   border: 2px solid rgb(9, 9, 117);
 }
-.form input + p {
+.form .field .describer {
   font-size: 0.9rem;
 }
-.form span[aria-label] {
-  margin-right: 0.2em;
+.form .field .show-password-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 0.5em;
+  color: rgb(9, 9, 117);
+  top: 0.8em;
 }
 
 .valid {

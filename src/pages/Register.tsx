@@ -84,7 +84,7 @@ const Register = () => {
                     focus={pwdFocus} 
                     value={pwd} 
                     fieldId={PWD}
-                    noteClassName={pwdFocus && !validPwd ? "instruction" : "offscreen"}
+                    noteClassName={pwdFocus && !validPwd ? "instruction describer" : "offscreen describer"}
                 >
                     8 to 24 characters.<br />
                     Must include uppercase and lowercase letters, a number<br />
@@ -96,7 +96,7 @@ const Register = () => {
                     <span aria-label='dollar sign'>$</span>
                     <span aria-label='percent'>%</span>
                     <span aria-label='plus'>+</span>
-                    <span aria-label='underscore'>%_</span>
+                    <span aria-label='underscore'>_</span>
                 </Input>
 
                 {/* PASSWORD CONFIRM FIELD */}
@@ -110,7 +110,7 @@ const Register = () => {
                     focus={matchFocus} 
                     value={matchPwd} 
                     fieldId={MATCH_PWD}
-                    noteClassName={matchFocus && !validMatch ? "instruction" : "offscreen"}
+                    noteClassName={matchFocus && !validMatch ? "instruction describer" : "offscreen describer"}
                 >
                     Must match the first password input field
                 </Input>

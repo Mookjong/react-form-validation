@@ -11,7 +11,7 @@ type InputProps = PropsWithChildren<{
     focus: boolean,
     value: string | number
     fieldId: string
-    noteClassName: "instruction" | "offscreen"
+    noteClassName: "instruction describer" | "offscreen describer"
 }>
 
 const Input = forwardRef(({
@@ -37,7 +37,7 @@ const Input = forwardRef(({
     }
 
     return (
-        <>
+        <div className="field">
             <input
                 type={inputType}
                 value={value}
@@ -60,7 +60,7 @@ const Input = forwardRef(({
                 <span className='invalid'><FontAwesomeIcon icon={faInfoCircle} /></span>&nbsp;
                 {children}
             </p>
-        </>
+        </div>
     )
 })
 
