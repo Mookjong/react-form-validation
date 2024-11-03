@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { faCheck, faTimes, faInfoCircle, } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { USER_REGEX, PWD_REGEX } from '../constants'
+import { USER_REGEX, PWD_REGEX, USERNAME, PWD, MATCH_PWD } from '../constants'
 import Label from '../components/Label'
 import Input from '../components/Input'
 
@@ -57,7 +57,7 @@ const Register = () => {
             <h1>Register</h1>
             <form action="">
                 {/* USERNAME FIELD */}
-                <Label fieldId="user" isValueValid={validName} value={user}>Username</Label>
+                <Label fieldId={USERNAME} isValueValid={validName} value={user}>Username</Label>
                 <Input 
                     type='text' 
                     autocomplete="off" 
@@ -67,7 +67,7 @@ const Register = () => {
                     focus={userFocus} 
                     value={user} 
                     ref={userRef}
-                    fieldId='user'
+                    fieldId={USERNAME}
                     noteClassName={userFocus && user && !validName ? "instruction" : "offscreen"}
                 >
                     4 to 24 characters.<br />
@@ -76,7 +76,7 @@ const Register = () => {
                 </Input>
 
                 {/* PASSWORD FIELD */}
-                <Label fieldId="pwd" isValueValid={validName} value={user}>Password</Label>
+                <Label fieldId={PWD} isValueValid={validPwd} value={pwd}>Password</Label>
                 <Input 
                     type='password' 
                     autocomplete="off" 
@@ -85,7 +85,7 @@ const Register = () => {
                     onFocus={setPwdFocus}
                     focus={pwdFocus} 
                     value={pwd} 
-                    fieldId='pwd'
+                    fieldId={PWD}
                     noteClassName={pwdFocus && !validPwd ? "instruction" : "offscreen"}
                 >
                     8 to 24 characters.<br />
@@ -97,6 +97,24 @@ const Register = () => {
                     <span aria-label='hashtag'>#</span>
                     <span aria-label='dollar sign'>$</span>
                     <span aria-label='percent'>%</span>
+                    <span aria-label='plus'>+</span>
+                    <span aria-label='underscore'>%_</span>
+                </Input>
+
+                {/* PASSWORD CONFIRM FIELD */}
+                <Label isValueValid={validPwd && validMatch} value={matchPwd} fieldId={MATCH_PWD}>Confirm Password</Label>
+                <Input 
+                    type="password" 
+                    autocomplete="off" 
+                    onChange={setMatchPwd}
+                    isValueValid={false} 
+                    onFocus={setMatchFocus} 
+                    focus={matchFocus} 
+                    value={matchPwd} 
+                    fieldId={MATCH_PWD}
+                    noteClassName={matchFocus && !validMatch ? "instruction" : "offscreen"}
+                >
+                    Must match the first password input field
                 </Input>
                
             </form>

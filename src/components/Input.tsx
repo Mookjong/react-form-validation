@@ -22,18 +22,18 @@ const Input = forwardRef(({
     onFocus, 
     fieldId,
     noteClassName,
+    value,
     children }: InputProps, 
 
     ref?: ForwardedRef<HTMLInputElement>) => {
 
     const id = useId()
 
-    console.log("INPUT RENDER")
-
     return (
         <>
             <input
                 type={type}
+                value={value}
                 id={fieldId}
                 ref={ref}
                 autoComplete={autocomplete}
