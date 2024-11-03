@@ -1,6 +1,7 @@
 import { ForwardedRef, forwardRef, PropsWithChildren, useId, useState } from "react"
 import { faInfoCircle, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { OFFSCREEN, INSTRUCTION } from "../constants"
 
 type InputProps = PropsWithChildren<{
     type: "text" | "password"
@@ -11,7 +12,7 @@ type InputProps = PropsWithChildren<{
     focus: boolean,
     value: string | number
     fieldId: string
-    noteClassName: "instruction describer" | "offscreen describer"
+    noteClassName: typeof INSTRUCTION | typeof OFFSCREEN
 }>
 
 const Input = forwardRef(({

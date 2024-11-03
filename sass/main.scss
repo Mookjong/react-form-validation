@@ -28,6 +28,31 @@
     margin-right: 0.2em;
   }
 
+  .btn {
+    border: 2px solid $clr-blue;
+    margin-top: 2em;
+    padding: .5em .8em;
+    border-radius: .8em;
+    background-color: $clr-background;
+    color: $clr-light;
+    font-weight: 600;
+    font-size: 1.2rem;
+    width: 100%;
+
+    &:disabled {
+      background-color: lighten($clr-background, 10%);
+      border-color: lighten($clr-blue, 20%);
+    }
+
+    &:hover:enabled {
+      color: darken($clr-light, 20%);
+    }
+
+    &:enabled:active {
+      color: $clr-blue;
+    }
+  }
+
   .field {
     position: relative;
 
@@ -58,6 +83,15 @@
       top: .8em;
     }
   }
+}
+
+form + p {
+  margin-top: 1em;
+  .line a {
+    color: $clr-blue;
+    padding: .3em 0;
+  }
+
 }
 
 

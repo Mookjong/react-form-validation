@@ -4,3 +4,6 @@ export const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%+_]).{8,2
 export const USERNAME = 'username'
 export const PWD = "pwd"
 export const MATCH_PWD = "confirm_pwd"
+
+export const INSTRUCTION = "instruction describer" 
+export const OFFSCREEN = "offscreen describer"

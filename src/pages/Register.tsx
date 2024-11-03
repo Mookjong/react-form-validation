@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { USER_REGEX, PWD_REGEX, USERNAME, PWD, MATCH_PWD } from '../constants'
+import { USER_REGEX, PWD_REGEX, USERNAME, PWD, MATCH_PWD, INSTRUCTION, OFFSCREEN} from '../constants'
 import Label from '../components/Label'
 import Input from '../components/Input'
 
@@ -66,7 +66,7 @@ const Register = () => {
                     value={user} 
                     ref={userRef}
                     fieldId={USERNAME}
-                    noteClassName={userFocus && user && !validName ? "instruction" : "offscreen"}
+                    noteClassName={userFocus && user && !validName ? INSTRUCTION : OFFSCREEN}
                 >
                     4 to 24 characters.<br />
                     Must begin with a letter.<br />
@@ -84,7 +84,7 @@ const Register = () => {
                     focus={pwdFocus} 
                     value={pwd} 
                     fieldId={PWD}
-                    noteClassName={pwdFocus && !validPwd ? "instruction describer" : "offscreen describer"}
+                    noteClassName={pwdFocus && !validPwd ? INSTRUCTION : OFFSCREEN}
                 >
                     8 to 24 characters.<br />
                     Must include uppercase and lowercase letters, a number<br />
@@ -110,12 +110,22 @@ const Register = () => {
                     focus={matchFocus} 
                     value={matchPwd} 
                     fieldId={MATCH_PWD}
-                    noteClassName={matchFocus && !validMatch ? "instruction describer" : "offscreen describer"}
+                    noteClassName={matchFocus && !validMatch ? INSTRUCTION : OFFSCREEN}
                 >
                     Must match the first password input field
                 </Input>
                
+                <button 
+                    className='btn'
+                    disabled={!validName || !validPwd || !validMatch}
+                    type="submit">Sign Up</button>
             </form>
+            <p>
+                Already registrered ?<br/>
+                <span className='line'>
+                    <a href="#">Sign In</a>
+                </span>
+            </p>
         </section>
     )
 }

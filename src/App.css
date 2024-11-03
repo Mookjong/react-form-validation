@@ -30,6 +30,27 @@ body {
 .form span[aria-label] {
   margin-right: 0.2em;
 }
+.form .btn {
+  border: 2px solid rgb(9, 9, 117);
+  margin-top: 2em;
+  padding: 0.5em 0.8em;
+  border-radius: 0.8em;
+  background-color: hsl(180, 78%, 14%);
+  color: #e7e1e1;
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 100%;
+}
+.form .btn:disabled {
+  background-color: hsl(180, 78%, 24%);
+  border-color: rgb(16.2857142857, 16.2857142857, 211.7142857143);
+}
+.form .btn:hover:enabled {
+  color: rgb(185.6666666667, 168.3333333333, 168.3333333333);
+}
+.form .btn:enabled:active {
+  color: rgb(9, 9, 117);
+}
 .form .field {
   position: relative;
 }
@@ -55,6 +76,14 @@ body {
   right: 0.5em;
   color: rgb(9, 9, 117);
   top: 0.8em;
+}
+
+form + p {
+  margin-top: 1em;
+}
+form + p .line a {
+  color: rgb(9, 9, 117);
+  padding: 0.3em 0;
 }
 
 .valid {
