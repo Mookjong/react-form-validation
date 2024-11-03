@@ -48,6 +48,10 @@
   }
 }
 
+.show-password-icon {
+  
+}
+
 .valid {
   color: green;
   @include icon-style
@@ -58,12 +62,12 @@
   @include icon-style;
 }
 
-.hide {
+.hide, .offscreen {
   display: none;
 }
 
-.offscreen {
-  display: none;
+.display {
+  display: inline;
 }
 
 .instruction {

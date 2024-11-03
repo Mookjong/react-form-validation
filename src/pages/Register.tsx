@@ -1,6 +1,4 @@
 import { useRef, useState, useEffect } from 'react'
-import { faCheck, faTimes, faInfoCircle, } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { USER_REGEX, PWD_REGEX, USERNAME, PWD, MATCH_PWD } from '../constants'
 import Label from '../components/Label'
 import Input from '../components/Input'

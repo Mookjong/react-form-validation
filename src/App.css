@@ -69,12 +69,12 @@ body {
   height: 1em;
 }
 
-.hide {
+.hide, .offscreen {
   display: none;
 }
 
-.offscreen {
-  display: none;
+.display {
+  display: inline;
 }
 
 .instruction {
